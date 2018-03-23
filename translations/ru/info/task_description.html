@@ -1,21 +1,22 @@
 <!-- Describe task in general -->
 
 <p>
-    Ваша задача - зашифровать текстовое сообщение используя <a href='https://ru.wikipedia.org/wiki/%D0%90%D0%B7%D0%B1%D1%83%D0%BA%D0%B0_%D0%9C%D0%BE%D1%80%D0%B7%D0%B5'>азбуку Морзе</a>. Исходный текст будет состоять только из букв (в верхнем и нижнем регистре), чисел и пробелов. Специальные символы использоваться не будут ('&', '?', '#' и т.п.)<br>
-    Используйте 1 пробел между буквами одого слова и 3 пробела между отдельными словами.
+    Ваша задача - расшифровать сообщение используя <a href='https://ru.wikipedia.org/wiki/%D0%90%D0%B7%D0%B1%D1%83%D0%BA%D0%B0_%D0%9C%D0%BE%D1%80%D0%B7%D0%B5'>азбуку Морзе</a>.<br>
+    В шифровке будет использован 1 пробел между буквами одого слова и 3 пробела между отдельными словами.<br>
+    Если расшифрованный текст начинается со слова, первая буква этого слова должна быть заглавной.
 </p>
 
 <p style="text-align: center;">
-    <img  title="Morse encoder" src="{{MEDIA}}example.jpg" alt="example" style="max-height: 283px"/>
+    <img  title="Morse decoder" src="{{MEDIA}}example.jpg" alt="example" style="max-height: 283px"/>
 </p>
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Входные данные: </strong> Секретное сообщение как строка
+    <strong>Входные данные: </strong> Секретное сообщение
 </p>
 
 <p>
-    <strong>Выходные данные: </strong> Зашифрованный текст
+    <strong>Выходные данные: </strong> Расшифрованный текст
 </p>
 
 
@@ -25,14 +26,14 @@
 <strong>Примеры:</strong>
 </p>
 {% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">morseEncoder("some text") == "... --- -- .   - . -..- -"
-morseEncoder("2018") == "..--- ----- .---- ---.."
-morseEncoder("It was a good day") == ".. -   .-- .- ...   .-   --. --- --- -..   -.. .- -.--"
+<pre class="brush: javascript">morseDecoder("... --- -- .   - . -..- -") == "Some text"
+morseDecoder("..--- ----- .---- ---..") == "2018"
+morseEncoder(".. -   .-- .- ...   .-   --. --- --- -..   -.. .- -.--") == "It was a good day"
 </pre>
 {% else %}
-<pre class="brush: python">morse_encoder("some text") == "... --- -- .   - . -..- -"
-morse_encoder("2018") == "..--- ----- .---- ---.."
-morse_encoder("It was a good day") == ".. -   .-- .- ...   .-   --. --- --- -..   -.. .- -.--"
+<pre class="brush: python">morse_decoder("... --- -- .   - . -..- -") == "Some text"
+morse_decoder("..--- ----- .---- ---..") == "2018"
+morse_decoder(".. -   .-- .- ...   .-   --. --- --- -..   -.. .- -.--") == "It was a good day"
 </pre>
 {% endif %}
 </div>
@@ -47,6 +48,5 @@ morse_encoder("It was a good day") == ".. -   .-- .- ...   .-   --. --- --- -.. 
 <!-- Here you can explain some constraints for input-->
 <!-- The section is optional -->
 <p><strong>Предусловия</strong>:<br>
-    0 < len(text) < 50<br>
-    Текст будет содержать только буквы (в верхнем и нижнем регистре), числа и пробелы.
+    0 < len(message) < 100<br>
 </p>

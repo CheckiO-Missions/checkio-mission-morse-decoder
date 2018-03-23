@@ -8,8 +8,8 @@ requirejs(['ext_editor_io', 'jquery_190'],
         var io = new extIO({
             multipleArguments: true,
             functions: {
-                python: 'morse_encoder',
-                js: 'morseEncoder'
+                python: 'morse_decoder',
+                js: 'morseDecoder'
             }
         });
         io.start();

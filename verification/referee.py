@@ -38,11 +38,11 @@ api.add_listener(
     CheckiOReferee(
         tests=TESTS,
         function_name={
-            "python": "morse_encoder",
-            "js": "morseEncoder"
+            "python": "morse_decoder",
+            "js": "morseDecoder"
         },
         cover_code={
-            'python-3': cover_codes.unwrap_args,
-            'js-node': cover_codes.js_unwrap_args
+            #'python-3': cover_codes.unwrap_args,
+            #'js-node': cover_codes.js_unwrap_args
         }
     ).on_ready)

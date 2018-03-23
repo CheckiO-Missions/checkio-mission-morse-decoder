@@ -1,13 +1,13 @@
-def morse_encoder(text):
+def morse_decoder(code):
     #replace this for solution
-    return text
+    return code
 
 if __name__ == '__main__':
     print("Example:")
-    print(morse_encoder('some text'))
+    print(morse_decoder('... --- ...'))
 
     #These "asserts" using only for self-checking and not necessary for auto-testing
-    assert morse_encoder("some text") == "... --- -- .   - . -..- -"
-    assert morse_encoder("2018") == "..--- ----- .---- ---.."
-    assert morse_encoder("It was a good day") == ".. -   .-- .- ...   .-   --. --- --- -..   -.. .- -.--"
+    assert morse_decoder("... --- -- .   - . -..- -") == "Some text"
+    assert morse_decoder("..--- ----- .---- ---..") == "2018"
+    assert morse_decoder(".. -   .-- .- ...   .-   --. --- --- -..   -.. .- -.--") == "It was a good day"
     print("Coding complete? Click 'Check' to earn cool rewards!")

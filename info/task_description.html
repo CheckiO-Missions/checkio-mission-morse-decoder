@@ -1,21 +1,22 @@
 <!-- Describe task in general -->
 
 <p>
-    Your task is to encrypt text message using <a href='https://en.wikipedia.org/wiki/Morse_code'>Morse code</a>. The input text will consists of letters (in uppercase and lowercase), numbers and whitespaces. No any special characters ('&', '?', '#' etc.)<br>
-    Use 1 space between letters in one word and 3 spaces between words.
+    Your task is to decrypt the secret message using <a href='https://en.wikipedia.org/wiki/Morse_code'>Morse code</a>.<br>
+    In message will be used 1 space between letters in one word and 3 spaces between words.<br>
+    If decrypted text starts with letter - print this letter in uppercase.
 </p>
 
 <p style="text-align: center;">
-    <img  title="Morse encoder" src="{{MEDIA}}example.jpg" alt="example" style="max-height: 283px"/>
+    <img  title="Morse decoder" src="{{MEDIA}}example.jpg" alt="example" style="max-height: 283px"/>
 </p>
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Input: </strong> Secret message as string
+    <strong>Input: </strong> Secret message
 </p>
 
 <p>
-    <strong>Output: </strong> The same string, but encrypted
+    <strong>Output: </strong> Decrypted text
 </p>
 
 
@@ -25,14 +26,14 @@
 <strong>Example:</strong>
 </p>
 {% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">morseEncoder("some text") == "... --- -- .   - . -..- -"
-morseEncoder("2018") == "..--- ----- .---- ---.."
-morseEncoder("It was a good day") == ".. -   .-- .- ...   .-   --. --- --- -..   -.. .- -.--"
+<pre class="brush: javascript">morseDecoder("... --- -- .   - . -..- -") == "Some text"
+morseDecoder("..--- ----- .---- ---..") == "2018"
+morseDecoder(".. -   .-- .- ...   .-   --. --- --- -..   -.. .- -.--") == "It was a good day"
 </pre>
 {% else %}
-<pre class="brush: python">morse_encoder("some text") == "... --- -- .   - . -..- -"
-morse_encoder("2018") == "..--- ----- .---- ---.."
-morse_encoder("It was a good day") == ".. -   .-- .- ...   .-   --. --- --- -..   -.. .- -.--"
+<pre class="brush: python">morse_decoder("... --- -- .   - . -..- -") == "Some text"
+morse_decoder("..--- ----- .---- ---..") == "2018"
+morse_decoder(".. -   .-- .- ...   .-   --. --- --- -..   -.. .- -.--") == "It was a good day"
 </pre>
 {% endif %}
 </div>
@@ -47,6 +48,5 @@ morse_encoder("It was a good day") == ".. -   .-- .- ...   .-   --. --- --- -.. 
 <!-- Here you can explain some constraints for input-->
 <!-- The section is optional -->
 <p><strong>Precondition</strong>:<br>
-    0 < len(text) < 50<br>
-    Only letters (in uppercase and lowercase), numbers and whitespaces.
+    0 < len(message) < 100<br>
 </p>
