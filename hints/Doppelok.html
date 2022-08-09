@@ -1,0 +1,115 @@
+
+
+
+
+
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        I have no idea how to start solving this mission
+    </div>
+    <div class="answer">
+        I will explain what you need to do. First, you need to split given code into words by "   " (3 spaces) separator.
+         Second, you need to take each part of splitted code and decode it using Morse code. And then join all parts together.
+         New string must starts with capital letter.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I need some help to proceed with the mission
+    </div>
+    <div class="answer">
+        To split the given code you can use <a target="_blank" href="https://docs.python.org/3.10/library/stdtypes.html?highlight=split#str.split">str.split()</a>.
+         You can <a target="_blank" href="https://www.google.com/search?q=python+string+split+example">google</a> an example.
+         Or look <a target="_blank" href="https://www.w3schools.com/python/ref_string_split.asp">here</a>.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I have gone halfway through. Need help!
+    </div>
+    <div class="answer">
+        So, now you need to use two "for" loop. The first one is to walk through the words in splitted string by "   ". The second one
+         is to walk through the letters in each word. Example:
+        <pre class="brush: python">
+for cod in code.split('   '):  # Here you split the given string into words
+    # some text
+    for i in cod.split():  # Here you split each word into letters
+        # some text
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I am stuck. I need a small hint.
+    </div>
+    <div class="answer">
+        Okay, we can add to our code 2 variables. First one is for our final result - "result", and the second one if for our intermediate result - "new".
+        <pre class="brush: python">
+result = []
+for cod in code.split('   '):
+    new = []  # This variable will reset every time when we finish the for loop below
+    for i in cod.split():
+        new.append(MORSE[i])  # And after successfully decryption we add letter to our "new" list
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Still stuck...
+    </div>
+    <div class="answer">
+        So, according to the condition, our result must consist words, not letters. We need to use
+         <a target="_blank" href="https://docs.python.org/3.10/library/stdtypes.html?highlight=str%20join">''.join()</a>
+         <a target="_blank" href="https://www.w3schools.com/python/ref_string_join.asp">example</a>..
+        <pre class="brush: python">
+result = []
+for cod in code.split('   '):
+    new = []
+    for i in cod.split():
+        new.append(MORSE[i])
+    result.append(''.join(new))  # At this point we add to our result a word
+                                 # After this we return to the third row, where our "new" will reset
+                                 # And do the same with next word (if it exist)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Tell me how to capitalize first letter
+    </div>
+    <div class="answer">
+        Use this
+         <a target="_blank" href="https://docs.python.org/3.10/library/stdtypes.html?highlight=str%20capitalize">str.capitalize()</a>.
+        <pre class="brush: python">
+"hello".capitalize()
+>> "Hello"
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        How my final solution will look like?
+    </div>
+    <div class="answer">
+        Here please!
+        <pre class="brush: python">
+def morse_decoder(code: str) -> str:
+    result = []
+    for cod in code.split('   '):  # In the cod variable we pass the encrypted word
+        new = []  # Here we will put the already decoded word. This variable will be reset when the loop below completes
+        for i in cod.split():
+            new.append(MORSE[i])  # Here we find each letter in the Morse code and return it to new
+        result.append(''.join(new))  # Add a word to our result as a string
+    return ' '.join(result).capitalize()  # We return the result as a string with an uppercase letter
+        </pre>
+        Or you can use one-line form:
+        <pre class="brush: python">
+def morse_decoder(code: str) -> str:
+    return ' '.join(''.join([MORSE[i] for i in cod.split()]) for cod in code.split('   ')).capitalize()
+        </pre>
+    </div>
+</div>
+
+
+</body>
