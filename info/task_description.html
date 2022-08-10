@@ -12,11 +12,11 @@
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Input: </strong> The secret message.
+    <strong>Input: </strong> The secret message (string).
 </p>
 
 <p>
-    <strong>Output: </strong> The decrypted text.
+    <strong>Output: </strong> The decrypted text (string).
 </p>
 
 
@@ -25,18 +25,7 @@
 <p>
 <strong>Example:</strong>
 </p>
-{% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">morseDecoder("... --- -- .   - . -..- -") == "Some text"
-morseDecoder("..--- ----- .---- ---..") == "2018"
-morseDecoder(".. -   .-- .- ...   .-   --. --- --- -..   -.. .- -.--") == "It was a good day"
-</pre>
-{% else %}
-<pre class="brush: python">morse_decoder("... --- -- .   - . -..- -") == "Some text"
-morse_decoder("..--- ----- .---- ---..") == "2018"
-morse_decoder(".. -   .-- .- ...   .-   --. --- --- -..   -.. .- -.--") == "It was a good day"
-</pre>
-{% endif %}
-</div>
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre></div>
 
 <!-- Here you can explain how it can be used in development and what is usage of this. -->
 <!-- The section is optional -->

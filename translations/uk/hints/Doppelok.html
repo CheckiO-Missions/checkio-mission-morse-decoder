@@ -1,0 +1,115 @@
+
+
+
+
+
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        Я не знаю, як розпочати вирішення цієї місії
+    </div>
+    <div class="answer">
+        Я поясню, що тобі потрібно зробити. Спочатку тобі потрібно розділити заданий шифр на слова, орієнтуйся при цьому на 3 пробіли.
+         По-друге, тобі потрібно взяти кожну частину розділеного коду та розшифрувати його за допомогою азбуки Морзе. А потім з’єднати всі частини разом.
+         Новий рядок має починатися з великої літери.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Мені потрібна допомога, щоб продовжити місію
+    </div>
+    <div class="answer">
+        Щоб розділити вказаний код, ти можеш використати <a target="_blank" href="https://docs.python.org/3.10/library/stdtypes.html?highlight=split#str.split">str.split() </a>.
+         Ти можеш <a target="_blank" href="https://www.google.com/search?q=python+string+split+example">погуглити</a> приклади.
+         Або заглянути <a target="_blank" href="https://www.w3schools.com/python/ref_string_split.asp">сюди</a>.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Я вже на половині шляху, допоможи!
+    </div>
+    <div class="answer">
+        Отже, тепер тобі потрібно використати два цикли "for". Перший, щоб пройти по словах. Другий
+         для того, щоб пройтися по буквах у кожному слові. Приклад:
+        <pre class="brush: python">
+for cod in code.split('   '):  # Тут ти розбиваєш заданий рядок на слова
+    # якийсь код
+    for i in cod.split():  # Тут ти розбиваєш кожне слово на літери
+        # якийсь код
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Мені потрібна маленька підказка.
+    </div>
+    <div class="answer">
+        Гаразд, ми можемо додати до нашого коду 2 змінні. Перша для нашого фінального результату - "result", а друга для нашого проміжного результату - "new".
+        <pre class="brush: python">
+result = []
+for cod in code.split('   '):
+    new = []  # Ця змінна буде скидатися кожного разу, коли ми закінчимо цикл for нижче
+    for i in cod.split():
+        new.append(MORSE[i])  # Після успішного розшифрування ми додаємо букву до нашого "нового" списку
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Все ще застряг...
+    </div>
+    <div class="answer">
+        Отже, згідно з умовою, наш результат повинен складатися зі слів, а не з букв. Нам потрібно використовувати
+         <a target="_blank" href="https://docs.python.org/3.10/library/stdtypes.html?highlight=str%20join">''.join()</a>
+         <a target="_blank" href="https://www.w3schools.com/python/ref_string_join.asp">тут є приклад</a>.
+        <pre class="brush: python">
+result = []
+for cod in code.split('   '):
+    new = []
+    for i in cod.split():
+        new.append(MORSE[i])
+    result.append(''.join(new))  # На цьому етапі ми додаємо до результату слово
+                                 # Після цього ми повертаємося до третього рядка, де наш "new" буде скинутий
+                                 # І зроби те саме з наступним словом (якщо воно є у тексті)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Підкажи, як першу літеру зробити великою?
+    </div>
+    <div class="answer">
+        Використовуй це
+         <a target="_blank" href="https://docs.python.org/3.10/library/stdtypes.html?highlight=str%20capitalize">str.capitalize()</a>.
+        <pre class="brush: python">
+"hello".capitalize()
+>> "Hello"
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Як виглядатиме моє остаточне рішення?
+    </div>
+    <div class="answer">
+        Ось, будь ласка!
+        <pre class="brush: python">
+def morse_decoder(code: str) -> str:
+    result = []
+    for cod in code.split('   '):  # В змінній cod ми передаємо зашифроване слово
+        new = []  # Сюди ми помістимо вже розшифроване слово. Ця змінна скинеться коли завершиться цикл нижче
+        for i in cod.split():
+            new.append(MORSE[i])  # Тут ми кожну літеру відшукуємо в азбуці Морзе і повертаємо у new
+        result.append(''.join(new))  # Додаємо слово до нашого result у вигляді рядка
+    return ' '.join(result).capitalize()  # Повертаємо результат у вигляді рядка з великої букви
+        </pre>
+        Або ти можеш використовувати однорядкову форму:
+        <pre class="brush: python">
+def morse_decoder(code: str) -> str:
+    return ' '.join(''.join([MORSE[i] for i in cod.split()]) for cod in code.split('   ')).capitalize()
+        </pre>
+    </div>
+</div>
+
+
+</body>
