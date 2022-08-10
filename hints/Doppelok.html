@@ -50,7 +50,8 @@ result = []
 for cod in code.split('   '):
     new = []  # This variable will reset every time when we finish the for loop below
     for i in cod.split():
-        new.append(MORSE[i])  # And after successfully decryption we add letter to our "new" list
+        new.append(MORSE[i])  # And after successfully decryption we add letter to our
+                              # "new" list
         </pre>
     </div>
 </div>
@@ -69,7 +70,8 @@ for cod in code.split('   '):
     for i in cod.split():
         new.append(MORSE[i])
     result.append(''.join(new))  # At this point we add to our result a word
-                                 # After this we return to the third row, where our "new" will reset
+                                 # After this we return to the third row, where our
+                                 # "new" will reset
                                  # And do the same with next word (if it exist)
         </pre>
     </div>
@@ -97,16 +99,20 @@ for cod in code.split('   '):
 def morse_decoder(code: str) -> str:
     result = []
     for cod in code.split('   '):  # In the cod variable we pass the encrypted word
-        new = []  # Here we will put the already decoded word. This variable will be reset when the loop below completes
+        new = []  # Here we will put the already decoded word. This variable will be
+                  # reset when the loop below completes
         for i in cod.split():
-            new.append(MORSE[i])  # Here we find each letter in the Morse code and return it to new
+            new.append(MORSE[i])  # Here we find each letter in the Morse code and
+                                  # return it to new
         result.append(''.join(new))  # Add a word to our result as a string
-    return ' '.join(result).capitalize()  # We return the result as a string with an uppercase letter
+    return ' '.join(result).capitalize()  # We return the result as a string with an
+                                          # uppercase letter
         </pre>
         Or you can use one-line form:
         <pre class="brush: python">
 def morse_decoder(code: str) -> str:
-    return ' '.join(''.join([MORSE[i] for i in cod.split()]) for cod in code.split('   ')).capitalize()
+    return ' '.join(''.join([MORSE[i] for i in cod.split()])
+                    for cod in code.split('   ')).capitalize()
         </pre>
     </div>
 </div>

@@ -50,7 +50,8 @@ result = []
 for cod in code.split('   '):
     new = []  # Ця змінна буде скидатися кожного разу, коли ми закінчимо цикл for нижче
     for i in cod.split():
-        new.append(MORSE[i])  # Після успішного розшифрування ми додаємо букву до нашого "нового" списку
+        new.append(MORSE[i])  # Після успішного розшифрування ми додаємо букву до нашого
+                              # "нового" списку
         </pre>
     </div>
 </div>
@@ -69,7 +70,8 @@ for cod in code.split('   '):
     for i in cod.split():
         new.append(MORSE[i])
     result.append(''.join(new))  # На цьому етапі ми додаємо до результату слово
-                                 # Після цього ми повертаємося до третього рядка, де наш "new" буде скинутий
+                                 # Після цього ми повертаємося до третього рядка, де наш
+                                 # "new" буде скинутий
                                  # І зроби те саме з наступним словом (якщо воно є у тексті)
         </pre>
     </div>
@@ -97,16 +99,20 @@ for cod in code.split('   '):
 def morse_decoder(code: str) -> str:
     result = []
     for cod in code.split('   '):  # В змінній cod ми передаємо зашифроване слово
-        new = []  # Сюди ми помістимо вже розшифроване слово. Ця змінна скинеться коли завершиться цикл нижче
+        new = []  # Сюди ми помістимо вже розшифроване слово. Ця змінна скинеться
+                  # коли завершиться цикл нижче
         for i in cod.split():
-            new.append(MORSE[i])  # Тут ми кожну літеру відшукуємо в азбуці Морзе і повертаємо у new
+            new.append(MORSE[i])  # Тут ми кожну літеру відшукуємо
+                                  # в азбуці Морзе і повертаємо у new
         result.append(''.join(new))  # Додаємо слово до нашого result у вигляді рядка
-    return ' '.join(result).capitalize()  # Повертаємо результат у вигляді рядка з великої букви
+    return ' '.join(result).capitalize()  # Повертаємо результат у вигляді рядка з
+                                          # великої букви
         </pre>
         Або ти можеш використовувати однорядкову форму:
         <pre class="brush: python">
 def morse_decoder(code: str) -> str:
-    return ' '.join(''.join([MORSE[i] for i in cod.split()]) for cod in code.split('   ')).capitalize()
+    return ' '.join(''.join([MORSE[i] for i in cod.split()])
+                    for cod in code.split('   ')).capitalize()
         </pre>
     </div>
 </div>
