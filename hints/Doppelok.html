@@ -95,6 +95,7 @@ for cod in code.split('   '):
     </div>
     <div class="answer">
         Here please!
+        <div class="spoiler">
         <pre class="brush: python">
 def morse_decoder(code: str) -> str:
     result = []
@@ -108,12 +109,15 @@ def morse_decoder(code: str) -> str:
     return ' '.join(result).capitalize()  # We return the result as a string with an
                                           # uppercase letter
         </pre>
+        </div>
         Or you can use one-line form:
+        <div class="spoiler">
         <pre class="brush: python">
 def morse_decoder(code: str) -> str:
     return ' '.join(''.join([MORSE[i] for i in cod.split()])
                     for cod in code.split('   ')).capitalize()
         </pre>
+        </div>
     </div>
 </div>
 
