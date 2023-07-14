@@ -1,0 +1,118 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        我不知道如何开始解决这个任务
+    </div>
+    <div class="answer">
+        <p>我将解释您需要做什么。首先，您需要将给定的代码分割成单词，重点是3个空格。其次，您需要将拆分后的代码的每一部分用莫尔斯电码进行解码。然后将所有部分连接起来。新字符串必须以大写字母开头。</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        我需要帮助来完成任务
+    </div>
+    <div class="answer">
+        <p>要分割给定的代码，您可以使用<a target="_blank" href="https://docs.python.org/3.10/library/stdtypes.html?highlight=split#str.split">str.split()</a> 。
+        您可以使用<a target="_blank" href="https://www.google.com/search?q=python+string+split+example">google</a> 示例。
+        或者查看<a target="_blank" href="https://www.w3schools.com/python/ref_string_split.asp">here</a> 。</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        我已经完成了一半。需要帮助！
+    </div>
+    <div class="answer">
+        <p>所以，现在您需要使用两个 "for "循环。第一个 "for "循环用于浏览拆分后的单词字符串。第二个循环是遍历每个单词中的字母。例如</p>
+        <pre class="brush: python">
+for cod in code.split('   '):  # Here you split the given string into words
+    # some text
+    for i in cod.split():  # Here you split each word into letters
+        # some text
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        我被卡住了。我需要一个小提示。
+    </div>
+    <div class="answer">
+        <p>好的，我们可以在代码中添加两个变量。第一个变量是最终结果 "result"，第二个变量是中间结果 "new"。</p>
+        <pre class="brush: python">
+result = []
+for cod in code.split('   '):
+    new = []  # This variable will reset every time when we finish the for loop below
+    for i in cod.split():
+        new.append(MORSE[i])  # And after successfully decryption we add letter to our
+                              # "new" list
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        还是卡住了...
+    </div>
+    <div class="answer">
+        <p>因此，根据条件，我们的结果必须是单词，而不是字母。我们需要使用
+        <a target="_blank" href="https://docs.python.org/3.10/library/stdtypes.html?highlight=str%20join">''.join()</a>
+        <a target="_blank" href="https://www.w3schools.com/python/ref_string_join.asp">example</a>..</p>
+        <pre class="brush: python">
+result = []
+for cod in code.split('   '):
+    new = []
+    for i in cod.split():
+        new.append(MORSE[i])
+    result.append(''.join(new))  # At this point we add to our result a word
+                                 # After this we return to the third row, where our
+                                 # "new" will reset
+                                 # And do the same with next word (if it exist)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        告诉我如何大写第一个字母
+    </div>
+    <div class="answer">
+        <p>使用这个
+        <a target="_blank" href="https://docs.python.org/3.10/library/stdtypes.html?highlight=str%20capitalize">str.capitalize()</a>.</p>
+        <pre class="brush: python">
+print("hello".capitalize())</pre>
+        <div class="output">
+            <p>输出：</p>
+            <pre>"Hello"</pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        我的最终解决方案是怎样的？
+    </div>
+    <div class="answer">
+        <p>请看这里！</p>
+        
+        <div class="spoiler">
+        <pre class="brush: python">
+def morse_decoder(code: str) -> str:
+    result = []
+    for cod in code.split('   '):  # In the cod variable we pass the encrypted word
+        new = []  # Here we will put the already decoded word. This variable will be
+                  # reset when the loop below completes
+        for i in cod.split():
+            new.append(MORSE[i])  # Here we find each letter in the Morse code and
+                                  # return it to new
+        result.append(''.join(new))  # Add a word to our result as a string
+    return ' '.join(result).capitalize()  # We return the result as a string with an
+                                          # uppercase letter
+        </pre>
+        </div>
+        <p>或者您也可以使用单行表格：</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def morse_decoder(code: str) -> str:
+    return ' '.join(''.join([MORSE[i] for i in cod.split()])
+                    for cod in code.split('   ')).capitalize()
+        </pre>
+        </div>
+    </div>
+</div>
+</body>
