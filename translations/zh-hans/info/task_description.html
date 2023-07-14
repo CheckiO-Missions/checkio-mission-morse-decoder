@@ -1,0 +1,44 @@
+<!-- Describe task in general -->
+
+<p>
+    您的任务是使用<a target="_blank" href='https://en.wikipedia.org/wiki/Morse_code'>Morse code</a> 解密密文。<br>
+    信息由单词组成，单词之间有3个空格，每个单词的每个字母之间有1个空格。<br>
+    如果解密后的文本以字母开头，那么您必须将该字母打印为大写字母。
+</p>
+
+<p style="text-align: center;">
+    <img  title="Morse decoder" src="{{MEDIA}}example.jpg" alt="example" style="max-height: 283px"/>
+</p>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>输入</strong>密文 <span>(str{% if is_js %}ing{% endif %})</span>.
+</p>
+
+<p>
+   <strong>输出：</strong>解密文本 <span>(str{% if is_js %}ing{% endif %})</span>.
+</p>
+
+
+<!-- Put some usage examples -->
+<div class="for_info_only">
+<p>
+<strong>举例说明</strong>
+</p>
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre></div>
+
+<!-- Here you can explain how it can be used in development and what is usage of this. -->
+<!-- The section is optional -->
+<p class="for_info_only">
+   <strong>如何使用：</strong>
+    用于密码学和间谍工作。
+</p>
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p><strong>前提条件</strong>
+    <ul>
+        <li>0 &lt; len(message) &lt; 100；</li>
+        <li>信息仅由数字和英文字母组成。</li>
+    </ul>
+</p>
