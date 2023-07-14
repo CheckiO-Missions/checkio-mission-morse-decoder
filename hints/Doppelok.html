@@ -1,17 +1,10 @@
-
-
-
-
-
 <body data-author="Doppelok">
 <div class="question-answer">
     <div class="question">
         I have no idea how to start solving this mission
     </div>
     <div class="answer">
-        I will explain what you need to do. First, you need to split given code into words, focus on 3 spaces.
-         Second, you need to take each part of splitted code and decode it using Morse code. And then join all parts together.
-         New string must starts with capital letter.
+        <p>I will explain what you need to do. First, you need to split given code into words, focus on 3 spaces. Second, you need to take each part of splitted code and decode it using Morse code. And then join all parts together. New string must starts with capital letter.</p>
     </div>
 </div>
 <div class="question-answer">
@@ -19,9 +12,9 @@
         I need some help to proceed with the mission
     </div>
     <div class="answer">
-        To split the given code you can use <a target="_blank" href="https://docs.python.org/3.10/library/stdtypes.html?highlight=split#str.split">str.split()</a>.
-         You can <a target="_blank" href="https://www.google.com/search?q=python+string+split+example">google</a> an example.
-         Or look <a target="_blank" href="https://www.w3schools.com/python/ref_string_split.asp">here</a>.
+        <p>To split the given code you can use <a target="_blank" href="https://docs.python.org/3.10/library/stdtypes.html?highlight=split#str.split">str.split()</a>.
+        You can <a target="_blank" href="https://www.google.com/search?q=python+string+split+example">google</a> an example.
+        Or look <a target="_blank" href="https://www.w3schools.com/python/ref_string_split.asp">here</a>.</p>
     </div>
 </div>
 <div class="question-answer">
@@ -29,8 +22,7 @@
         I have gone halfway through. Need help!
     </div>
     <div class="answer">
-        So, now you need to use two "for" loop. The first one is to walk through the words in splitted string. The second one
-         is to walk through the letters in each word. Example:
+        <p>So, now you need to use two "for" loop. The first one is to walk through the words splitted string. The second one is to walk through the letters in each word. Example:</p>
         <pre class="brush: python">
 for cod in code.split('   '):  # Here you split the given string into words
     # some text
@@ -44,7 +36,7 @@ for cod in code.split('   '):  # Here you split the given string into words
         I am stuck. I need a small hint.
     </div>
     <div class="answer">
-        Okay, we can add to our code 2 variables. First one is for our final result - "result", and the second one if for our intermediate result - "new".
+        <p>Okay, we can add to our code 2 variables. First one is for our final result - "result", and the second one if for our intermediate result - "new".</p>
         <pre class="brush: python">
 result = []
 for cod in code.split('   '):
@@ -60,9 +52,9 @@ for cod in code.split('   '):
         Still stuck...
     </div>
     <div class="answer">
-        So, according to the condition, our result must consist words, not letters. We need to use
+        <p>So, according to the condition, our result must consist words, not letters. We need to use
          <a target="_blank" href="https://docs.python.org/3.10/library/stdtypes.html?highlight=str%20join">''.join()</a>
-         <a target="_blank" href="https://www.w3schools.com/python/ref_string_join.asp">example</a>..
+         <a target="_blank" href="https://www.w3schools.com/python/ref_string_join.asp">example</a>..</p>
         <pre class="brush: python">
 result = []
 for cod in code.split('   '):
@@ -81,12 +73,14 @@ for cod in code.split('   '):
         Tell me how to capitalize first letter
     </div>
     <div class="answer">
-        Use this
-         <a target="_blank" href="https://docs.python.org/3.10/library/stdtypes.html?highlight=str%20capitalize">str.capitalize()</a>.
+        <p>Use this
+         <a target="_blank" href="https://docs.python.org/3.10/library/stdtypes.html?highlight=str%20capitalize">str.capitalize()</a>.</p>
         <pre class="brush: python">
-"hello".capitalize()
->> "Hello"
-        </pre>
+print("hello".capitalize())</pre>
+        <div class="output">
+            <p>Output:</p>
+            <pre>"Hello"</pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
@@ -94,7 +88,8 @@ for cod in code.split('   '):
         How my final solution will look like?
     </div>
     <div class="answer">
-        Here please!
+        <p>Here please!</p>
+        
         <div class="spoiler">
         <pre class="brush: python">
 def morse_decoder(code: str) -> str:
@@ -110,7 +105,7 @@ def morse_decoder(code: str) -> str:
                                           # uppercase letter
         </pre>
         </div>
-        Or you can use one-line form:
+        <p>Or you can use one-line form:</p>
         <div class="spoiler">
         <pre class="brush: python">
 def morse_decoder(code: str) -> str:
@@ -120,6 +115,4 @@ def morse_decoder(code: str) -> str:
         </div>
     </div>
 </div>
-
-
 </body>

@@ -1,7 +1,7 @@
 <!-- Describe task in general -->
 
 <p>
-    Your task is to decrypt the secret message using the <a href='https://en.wikipedia.org/wiki/Morse_code'>Morse code</a>.<br>
+    Your task is to decrypt the secret message using the <a target="_blank" href='https://en.wikipedia.org/wiki/Morse_code'>Morse code</a>.<br>
     The message will consist of words with 3 spaces between them and 1 space between each letter of each word.<br>
     If the decrypted text starts with a letter then you'll have to print this letter in uppercase.
 </p>
@@ -12,31 +12,33 @@
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Input: </strong> The secret message (string).
+    <strong>Input:</strong> The secret message <span translate="no">(str{% if is_js %}ing{% endif %})</span>.
 </p>
 
 <p>
-    <strong>Output: </strong> The decrypted text (string).
+    <strong>Output:</strong> The decrypted text <span translate="no">(str{% if is_js %}ing{% endif %})</span>.
 </p>
 
 
 <!-- Put some usage examples -->
 <div class="for_info_only">
 <p>
-<strong>Example:</strong>
+<strong>Examples:</strong>
 </p>
 <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre></div>
 
 <!-- Here you can explain how it can be used in development and what is usage of this. -->
 <!-- The section is optional -->
 <p class="for_info_only">
-    <strong>How it is used: </strong>
+    <strong>How it is used:</strong>
     For cryptography and spy work.
 </p>
 
 <!-- Here you can explain some constraints for input-->
 <!-- The section is optional -->
-<p><strong>Precondition</strong>:<br>
-    0 < len(message) < 100<br>
-    The message will consists of numbers and English letters only.
+<p><strong>Preconditions:</strong>
+    <ul>
+        <li>0 < len(message) < 100;</li>
+        <li>The message will consists of numbers and English letters only.</li>
+    </ul>
 </p>
