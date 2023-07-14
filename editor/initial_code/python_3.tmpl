@@ -17,8 +17,8 @@ MORSE = {'.-':    'a', '-...':  'b', '-.-.':  'c',
         }
 
 def morse_decoder(code: str) -> str:
-    #replace this for solution
-    return code
+    # your code here
+    return ""
 
 {% endblock start %}
 
@@ -27,6 +27,7 @@ print('Example:')
 print(morse_decoder("... --- -- .   - . -..- -"))
 {% endblock %}
 
+# These "asserts" are used for self-checking
 {% block tests %}
 {% for t in tests %}
 assert {% block call %}morse_decoder({{t.input|p_args}})
