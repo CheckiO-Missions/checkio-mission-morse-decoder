@@ -97,7 +97,7 @@ print("hello".capitalize())</pre>
     </div>
     <div class="answer">
         <p>Ось, будь ласка!</p>
-        
+        <div class="spoiler">
         <pre class="brush: python">
 def morse_decoder(code: str) -> str:
     result = []
@@ -111,13 +111,15 @@ def morse_decoder(code: str) -> str:
     return ' '.join(result).capitalize()  # Повертаємо результат у вигляді рядка з
                                           # великої букви
         </pre>
+        </div>
         <p>Або ти можеш використовувати однорядкову форму:</p>
-        
+         <div class="spoiler">
         <pre class="brush: python">
 def morse_decoder(code: str) -> str:
     return ' '.join(''.join([MORSE[i] for i in cod.split()])
                     for cod in code.split('   ')).capitalize()
         </pre>
+         </div>
     </div>
 </div>
 </body>
