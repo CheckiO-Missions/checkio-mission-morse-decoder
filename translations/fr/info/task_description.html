@@ -1,0 +1,44 @@
+<!-- Describe task in general -->
+
+<p>
+    Votre tâche consiste à décrypter le message secret à l'aide de <a target="_blank" href='https://en.wikipedia.org/wiki/Morse_code'>Morse code</a>.<br>
+    Le message sera composé de mots avec 3 espaces entre eux et 1 espace entre chaque lettre de chaque mot.<br>
+    Si le texte décrypté commence par une lettre, vous devrez l'écrire en majuscules.
+</p>
+
+<p style="text-align: center;">
+    <img  title="Morse decoder" src="{{MEDIA}}example.jpg" alt="example" style="max-height: 283px"/>
+</p>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Entrée:</strong> Le message secret <span>(str{% if is_js %}ing{% endif %})</span>.
+</p>
+
+<p>
+   <strong>Sortie:</strong> Le texte décrypté <span>(str{% if is_js %}ing{% endif %})</span>.
+</p>
+
+
+<!-- Put some usage examples -->
+<div class="for_info_only">
+<p>
+<strong>Exemples:</strong>
+</p>
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre></div>
+
+<!-- Here you can explain how it can be used in development and what is usage of this. -->
+<!-- The section is optional -->
+<p class="for_info_only">
+   <strong>Comment il est utilisé:</strong>
+    Pour la cryptographie et l'espionnage.
+</p>
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p><strong>Conditions préalables:</strong>
+    <ul>
+        <li>0 &lt; len(message) &lt; 100;</li>
+        <li>Le message sera composé uniquement de chiffres et de lettres anglaises.</li>
+    </ul>
+</p>
