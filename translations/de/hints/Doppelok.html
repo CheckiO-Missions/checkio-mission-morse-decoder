@@ -1,0 +1,118 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        Ich habe keine Ahnung, wie ich mit der Lösung dieser Mission beginnen soll
+    </div>
+    <div class="answer">
+        <p>Ich werde Ihnen erklären, was Sie tun müssen. Zunächst müssen Sie den gegebenen Code in Wörter zerlegen und sich dabei auf 3 Leerzeichen konzentrieren. Zweitens müssen Sie jeden Teil des aufgeteilten Codes nehmen und ihn mit Hilfe des Morsecodes entschlüsseln. Und dann fügen Sie alle Teile zusammen. Der neue String muss mit einem Großbuchstaben beginnen.</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ich brauche Hilfe, um mit der Mission fortzufahren
+    </div>
+    <div class="answer">
+        <p>Um den gegebenen Code aufzuteilen, können Sie <a target="_blank" href="https://docs.python.org/3.10/library/stdtypes.html?highlight=split#str.split">str.split()</a> verwenden.
+        Sie können <a target="_blank" href="https://www.google.com/search?q=python+string+split+example">google</a> ein Beispiel entnehmen.
+        Oder schauen Sie <a target="_blank" href="https://www.w3schools.com/python/ref_string_split.asp">here</a>.</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ich bin auf halbem Wege steckengeblieben. Ich brauche Hilfe!
+    </div>
+    <div class="answer">
+        <p>Jetzt müssen Sie also zwei "for"-Schleifen verwenden. Die erste Schleife durchläuft die geteilte Zeichenkette der Wörter. Die zweite geht durch die Buchstaben in jedem Wort. Beispiel:</p>
+        <pre class="brush: python">
+for cod in code.split('   '):  # Here you split the given string into words
+    # some text
+    for i in cod.split():  # Here you split each word into letters
+        # some text
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ich stecke fest. Ich brauche einen kleinen Hinweis.
+    </div>
+    <div class="answer">
+        <p>Okay, wir können in unserem Code 2 Variablen hinzufügen. Die erste ist für unser Endergebnis - "result", und die zweite für unser Zwischenergebnis - "new".</p>
+        <pre class="brush: python">
+result = []
+for cod in code.split('   '):
+    new = []  # This variable will reset every time when we finish the for loop below
+    for i in cod.split():
+        new.append(MORSE[i])  # And after successfully decryption we add letter to our
+                              # "new" list
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ich stecke immer noch fest...
+    </div>
+    <div class="answer">
+        <p>Gemäß der Bedingung muss unser Ergebnis also aus Wörtern und nicht aus Buchstaben bestehen. Wir müssen Folgendes verwenden
+        <a target="_blank" href="https://docs.python.org/3.10/library/stdtypes.html?highlight=str%20join">''.join()</a>
+        <a target="_blank" href="https://www.w3schools.com/python/ref_string_join.asp">example</a>..</p>
+        <pre class="brush: python">
+result = []
+for cod in code.split('   '):
+    new = []
+    for i in cod.split():
+        new.append(MORSE[i])
+    result.append(''.join(new))  # At this point we add to our result a word
+                                 # After this we return to the third row, where our
+                                 # "new" will reset
+                                 # And do the same with next word (if it exist)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Sagen Sie mir, wie man den ersten Buchstaben groß schreibt
+    </div>
+    <div class="answer">
+        <p>Verwenden Sie dies
+        <a target="_blank" href="https://docs.python.org/3.10/library/stdtypes.html?highlight=str%20capitalize">str.capitalize()</a>.</p>
+        <pre class="brush: python">
+print("hello".capitalize())</pre>
+        <div class="output">
+            <p>Ausgabe:</p>
+            <pre>"Hello"</pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Wie wird meine endgültige Lösung aussehen?
+    </div>
+    <div class="answer">
+        <p>Bitte hier!</p>
+        
+        <div class="spoiler">
+        <pre class="brush: python">
+def morse_decoder(code: str) -> str:
+    result = []
+    for cod in code.split('   '):  # In the cod variable we pass the encrypted word
+        new = []  # Here we will put the already decoded word. This variable will be
+                  # reset when the loop below completes
+        for i in cod.split():
+            new.append(MORSE[i])  # Here we find each letter in the Morse code and
+                                  # return it to new
+        result.append(''.join(new))  # Add a word to our result as a string
+    return ' '.join(result).capitalize()  # We return the result as a string with an
+                                          # uppercase letter
+        </pre>
+        </div>
+        <p>Oder Sie können ein einzeiliges Formular verwenden:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def morse_decoder(code: str) -> str:
+    return ' '.join(''.join([MORSE[i] for i in cod.split()])
+                    for cod in code.split('   ')).capitalize()
+        </pre>
+        </div>
+    </div>
+</div>
+</body>
